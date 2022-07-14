@@ -13,7 +13,7 @@ dotfiles:
   f_bashrc:
     src: bashrc
     dst: ~/.bashrc
-  f_config:
+  f_bat:
     src: config/bat/config
     dst: ~/.config/bat/config
 profiles:
@@ -22,4 +22,11 @@ profiles:
     - f_vimrc
     - f_gitconfig
     - f_bashrc
-    - f_config
+    - f_bat
+  # RA notebook
+  96ZDTQ2:
+    dotfiles:
+    - f_vimrc
+    - f_gitconfig
+    - f_bashrc
+    - f_bat
