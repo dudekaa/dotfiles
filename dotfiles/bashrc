@@ -1,0 +1,78 @@
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+
+# User specific environment
+if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]
+then
+    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+fi
+
+# Uncomment the following line if you don't like systemctl's auto-paging feature:
+# export SYSTEMD_PAGER=
+
+# User specific aliases and functions
+if [ -d ~/.bashrc.d ]; then
+    for rc in ~/.bashrc.d/*; do
+        if [ -f "$rc" ]; then
+            . "$rc"
+        fi
+    done
+fi
+
+unset rc
+
+# dotdrop setup
+alias dotdrop="$HOME/dotfiles/dotdrop.sh --cfg=$HOME/dotfiles/config.yaml"
+
+# disable bluetooth on startup
+BLUETOOTH_ID=`rfkill list | grep Bluetooth | cut -d':' -f1`
+test "$BLUETOOTH_ID" && rfkill block $BLUETOOTH_ID || echo "No Bluetooth adapter found"
+
+# yarn v1 completion
+# $ git clone https://github.com/dsifford/yarn-completion
+. ~/yarn-completion/yarn-completion.bash
+
+# bash history
+export HISTSIZE=
+export HISTFILESIZE=
+export HISTTIMEFORMAT="[%F %T] "
+
+# git prompt
+# if ! type __git_ps1 &> /dev/null && [ -e /usr/share/git-core/contrib/completion/git-prompt.sh ]; then
+#         . /usr/share/git-core/contrib/completion/git-prompt.sh
+# fi
+# if type __git_ps1 &> /dev/null; then
+#         export GIT_PS1_SHOWDIRTYSTATE=1
+#         export GIT_PS1_SHOWUNTRACKEDFILES=1
+#         export GIT_PS1_SHOWCOLORHINTS=1
+#         export PROMPT_DIRTRIM=2
+#         export PROMPT_COMMAND='__git_ps1 "[\u@\h \W]" "\\\$ "'
+# fi
+
+# android SDK
+export ANDROID_SDK_ROOT=/usr/local/libexec/android-sdk
+export PATH="$PATH:$ANDROID_SDK_ROOT/platform-tools"
+export PATH="$PATH:$ANDROID_SDK_ROOT/cmdline-tools/latest/bin"
+
+# xz options, e.g. for tar
+# * max compression (-9)
+# * number of threads per cpu (-T0)
+export XZ_OPT="-9 -T0"
+
+# NVM setup
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# GBT setup
+# $ dnf install gbt
+export PS1='$(gbt $?)'
+
+# MDV setup
+# $ pip3 install -U --user mdv3
+alias mdv="python3 $HOME/.local/lib/python3.10/site-packages/mdv/markdownviewer.py"
+export MDV_THEME=856.0437

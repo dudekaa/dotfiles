@@ -1,0 +1,25 @@
+config:
+  backup: true
+  create: true
+  dotpath: dotfiles
+dotfiles:
+  f_vimrc:
+    src: vimrc
+    dst: ~/.vimrc
+  f_gitconfig:
+    src: gitconfig
+    dst: ~/.gitconfig
+    chmod: '664'
+  f_bashrc:
+    src: bashrc
+    dst: ~/.bashrc
+  f_config:
+    src: config/bat/config
+    dst: ~/.config/bat/config
+profiles:
+  cokoliv:
+    dotfiles:
+    - f_vimrc
+    - f_gitconfig
+    - f_bashrc
+    - f_config

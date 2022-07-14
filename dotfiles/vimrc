@@ -1,0 +1,9 @@
+syntax on
+set number
+
+" tabs to 4
+set tabstop=4
+set autoindent
+set expandtab
+" to delete with <backspace> same amount of spaces
+set softtabstop=4
