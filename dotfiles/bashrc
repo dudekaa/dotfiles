@@ -41,18 +41,6 @@ export HISTSIZE=
 export HISTFILESIZE=
 export HISTTIMEFORMAT="[%F %T] "
 
-# git prompt
-# if ! type __git_ps1 &> /dev/null && [ -e /usr/share/git-core/contrib/completion/git-prompt.sh ]; then
-#         . /usr/share/git-core/contrib/completion/git-prompt.sh
-# fi
-# if type __git_ps1 &> /dev/null; then
-#         export GIT_PS1_SHOWDIRTYSTATE=1
-#         export GIT_PS1_SHOWUNTRACKEDFILES=1
-#         export GIT_PS1_SHOWCOLORHINTS=1
-#         export PROMPT_DIRTRIM=2
-#         export PROMPT_COMMAND='__git_ps1 "[\u@\h \W]" "\\\$ "'
-# fi
-
 # android SDK
 export ANDROID_SDK_ROOT=/usr/local/libexec/android-sdk
 export PATH="$PATH:$ANDROID_SDK_ROOT/platform-tools"
@@ -64,6 +52,7 @@ export PATH="$PATH:$ANDROID_SDK_ROOT/cmdline-tools/latest/bin"
 export XZ_OPT="-9 -T0"
 
 # NVM setup
+# $ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
