@@ -20,3 +20,5 @@ $ pip3 install --user -r dotdrop/requirements.txt
 $ ./dotdrop/bootstrap.sh
 $ ./dotdrop.sh install
 ```
+
+NOTE: There's `dotdrop` alias in `~/.bashrc` that needs updating according to git repository clone path.
