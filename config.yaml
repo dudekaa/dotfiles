@@ -30,3 +30,9 @@ profiles:
     - f_gitconfig
     - f_bashrc
     - f_bat
+  neco2:
+    dotfiles:
+    - f_vimrc
+    - f_gitconfig
+    - f_bashrc
+    - f_bat
