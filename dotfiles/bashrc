@@ -58,8 +58,13 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # GBT setup
+# add gbt repo: https://github.com/jtyr/gbt#centosrhel
 # $ dnf install gbt
 export PS1='$(gbt $?)'
+
+# BAT setup
+# dnf install bat
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 # MDV setup
 # $ pip3 install -U --user mdv3
