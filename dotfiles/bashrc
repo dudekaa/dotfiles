@@ -26,12 +26,16 @@ fi
 unset rc
 
 # dotdrop setup
+# clone git repo
+# pip3 install --user -r dotdrop/requirements.txt
 alias dotdrop="$HOME/dotfiles/dotdrop.sh --cfg=$HOME/dotfiles/config.yaml"
 
+{%@@ if profile == "cokoliv" @@%}
 # disable bluetooth on startup
 BLUETOOTH_ID=`rfkill list | grep Bluetooth | cut -d':' -f1`
 test "$BLUETOOTH_ID" && rfkill block $BLUETOOTH_ID || echo "No Bluetooth adapter found"
 
+{%@@ endif @@%}
 # yarn v1 completion
 # $ git clone https://github.com/dsifford/yarn-completion
 . ~/yarn-completion/yarn-completion.bash
