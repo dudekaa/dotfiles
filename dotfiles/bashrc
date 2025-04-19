@@ -68,6 +68,8 @@ export PS1='$(gbt $?)'
 
 # BAT setup
 # dnf install bat
+# next line fixes control characters visibility in man pages on F42
+export GROFF_NO_SGR=1
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 # MDV setup
